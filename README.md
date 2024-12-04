@@ -1,7 +1,8 @@
 # Projeto final da Nathana 😃
 ### Criando uma ferramenta poderosa para a gestão eficiente de produtos em supermercados.
 
-## Softwares necessários
+## Softwares e ferramentas necessárias
+- npm
 - React
 - CSS
 - BootStrap
