@@ -12,8 +12,7 @@
 -  O sistema deve ter uma área de login onde os usuários poderão se autenticar.
 -  Somente administradores terão permissões para cadastrar e excluir produtos.
 ###  2. Cadastro de Produtos
-- O sistema deve permitir que administradores cadastrem novos produtos, informando
-- detalhes como nome, descrição, categoria, preço e validade.
+- O sistema deve permitir que administradores cadastrem novos produtos, informando detalhes como nome, descrição, categoria, preço e validade.
 - Administradores devem poder excluir produtos do sistema.
 ###  3. Gestão de Comentários
 - Usuários poderão inserir comentários sobre os produtos, que podem incluir informações sobre estoque, validade, promoções, entre outros.
