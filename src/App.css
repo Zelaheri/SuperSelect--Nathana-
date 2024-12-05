@@ -1,5 +1,28 @@
-html {
+html, body {
   background-color: #282c34;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  place-self: center;
+  max-width: min-content;
+  background-color: rgba(0, 0, 0, 0.33);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+form > input {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 2.5px 0;
+  background-color: wheat;
+}
+
+form > input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
 }
 
 .App {
@@ -9,6 +32,8 @@ html {
 .backpanel {
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
   gap: 10px;
   padding: 20px;
+  background-color: #282c34;
 }

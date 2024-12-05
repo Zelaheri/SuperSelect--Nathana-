@@ -9,7 +9,7 @@ function Produto(prop) {
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Categoria: {prop.categoria}</li>
-                        <li class="list-group-item">Preço: R$ {prop.preco.toFixed(2)}</li>
+                        <li class="list-group-item">Preço: R$ {prop.preco}</li>
                         <li class="list-group-item">Validade: {prop.validade}</li>
                     </ul>
                     <div class="card-body">

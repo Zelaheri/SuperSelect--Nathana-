@@ -1,5 +1,6 @@
-import Produto from "../components/produto"
+import Painel from "../components/painel"
 import { useState } from "react";
+import axios from "axios";
 
 function Admin() {
     const [values, setValues] = useState();
@@ -12,50 +13,36 @@ function Admin() {
         console.log(values)
     }
 
+    const lista = []
     function handleClickBtn() {
-        const nome = values.nome;
-        const categoria = values.categoria;
-        const preco = values.preco;
-        const validade = values.validade;
+
+        axios.get('http://localhost:3001/produtos')
+            .then(response => {
+                response.data.forEach((item) => {
+                    lista.push(item)
+                })
+            })
+            .catch(error => {
+                console.error(error)
+            })
+        console.log("Lista: ", lista)
     }
+
 
     return (
         <div>
             {/* Cadastro de produtos */}
-            <form>
-                <input onChange={handleOnChange} name="nome" type="text" placeholder="Nome" />
-                <input onChange={handleOnChange} name="categoria" type="text" placeholder="Categoria" />
-                <input onChange={handleOnChange} name="preco" type="number" placeholder="Preco" />
-                <input onChange={handleOnChange} name="validade" type="date" placeholder="Validade" />
+            <form onSubmit={(e) => e.preventDefault()}>
+                <input onChange={handleOnChange} name="nome" type="text" placeholder="Nome" required />
+                <input onChange={handleOnChange} name="categoria" type="text" placeholder="Categoria" required />
+                <input onChange={handleOnChange} name="preco" type="number" placeholder="Preco" required />
+                <input onChange={handleOnChange} name="validade" type="date" placeholder="Validade" required />
 
                 <button onClick={handleClickBtn} type="submit" className="btn btn-primary">Cadastrar</button>
             </form>
 
             {/* Painel de produtos */}
-            <div className="backpanel">
-
-                <Produto
-                    nome="Golden"
-                    categoria=""
-                    preco={100}
-                    validade=""
-                    url="https://images.tcdn.com.br/img/img_prod/795791/cerveja_artesanal_baden_baden_golden_caminho_da_fazenda_673_1_2a10ffa16f7dcfb14baf705d50731b96.jpg"
-                />
-                <Produto
-                    nome="Ipa"
-                    categoria=""
-                    preco={100}
-                    validade=""
-                    url="https://cervejabox.vteximg.com.br/arquivos/ids/238781-1000-1000/ipa.jpg?v=638602562522400000"
-                />
-                <Produto
-                    nome="Golden"
-                    categoria=""
-                    preco={100}
-                    validade=""
-                    url="https://images.tcdn.com.br/img/img_prod/795791/cerveja_artesanal_baden_baden_golden_caminho_da_fazenda_673_1_2a10ffa16f7dcfb14baf705d50731b96.jpg"
-                />
-            </div>
+            <Painel produto={lista} />
         </div>
     )
 }
